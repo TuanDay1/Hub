@@ -14,7 +14,7 @@ local function HttpGet(...)
     return _httpget(game, ...)
 end
 ------------------------------------------------
-local FileManager = loadstring(HttpGet("https://phanphu.site/NTC/library/FileManager.lua"))()
+local FileManager = loadstring(HttpGet("https://raw.githubusercontent.com/TuanDay1/Hub/refs/heads/main/Library/FileManager.lua"))()
 ------------------------------------------------
 
 ----- Variables -----
