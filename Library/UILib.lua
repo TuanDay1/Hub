@@ -47,7 +47,7 @@ local CoreGui = _gethui() or game:GetService("CoreGui"):Clone()
 local currentTab = nil
 ------------------------------------------------
 
-local existScreen = CoreGui:FindFirstChild(string.format("%s Hub", Theme.Name))
+local existScreen = CoreGui:FindFirstChild(Theme.Name)
 if existScreen then
     existScreen:Destroy()
 end
