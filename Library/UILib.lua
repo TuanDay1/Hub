@@ -178,28 +178,28 @@ function UILib.CreateWindow(gameName: string, saveFolder: string)
         end
     end
 
-    local hubConfig = _env.Config
-    local configFile = HttpGet("https://phanphu.site/NTC/config.json")
+    -- local hubConfig = _env.Config
+    -- local configFile = HttpGet("https://phanphu.site/NTC/config.json")
 
-    local configSuccess, configValue = pcall(function()
-        return HttpService:JSONDecode(configFile)
-    end)
+    -- local configSuccess, configValue = pcall(function()
+    --     return HttpService:JSONDecode(configFile)
+    -- end)
     
-    if configSuccess and configValue then
-        configValue = configValue[tostring(placeId)]
-        if configValue then
-            for i, v in pairs(configValue) do
-                if hubConfig[i] then
-                    continue
-                else
-                    hubConfig[i] = v
-                end
-            end
-        end
-    end
+    -- if configSuccess and configValue then
+    --     configValue = configValue[tostring(placeId)]
+    --     if configValue then
+    --         for i, v in pairs(configValue) do
+    --             if hubConfig[i] then
+    --                 continue
+    --             else
+    --                 hubConfig[i] = v
+    --             end
+    --         end
+    --     end
+    -- end
     
-    FileManager:GetFolder(saveFolder)
-    FileManager:GetFile(fileName, hubConfig)
+    -- FileManager:GetFolder(saveFolder)
+    -- FileManager:GetFile(fileName, hubConfig)
 
     ----------------------------------------------------------
     _env.FileName = fileName
