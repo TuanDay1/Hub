@@ -448,6 +448,41 @@ function Library:CreateWindow(gameName: string, saveFolder: string)
     end)
 end
 
+function Library:CreateClientInfo()
+    Library.GuiObjects.MainFrame = Create("CanvasGroup", {
+        Size = UDim2.new(0.219,0,0.17,0),
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.new(0.139, 0, 0.155, 0),
+        BackgroundColor3 = Color3.fromRGB(20, 20, 20),
+        Visible = false,
+        Parent = HubScreen,
+
+		Create("UICorner", {
+            CornerRadius = UDim.new(0.15, 0),
+        }),
+
+        Create("Frame", {
+            Size = UDim2.new(1,0,0.2,0),
+            AnchorPoint = Vector2.new(0, 0),
+            Position = UDim2.new(0,0,0,0),
+            BackgroundColor3 = Color3.fromRGB(255, 205, 135),
+            ZIndex = 2,
+
+            Create("TextLabel", {
+                RichText = true,
+                Text = 'Ngu Thi Chet <font color="#ffffff">Client Info</font>',
+                TextScaled = true,
+                TextXAlignment = Enum.TextXAlignment.Center,
+                Size = UDim2.new(1,0,0.6,0),
+                AnchorPoint = Vector2.new(0, 0.5),
+                Position = UDim2.new(0,0,0.5,0),
+                BackgroundTransparency = 1,
+                ZIndex = 3,
+            })
+        })
+    })
+end
+
 function Library:CreateTab(title: string)
     local tab = {}
 
@@ -1627,6 +1662,7 @@ function Library:Notify(title: string, content: string, callback, timeOut: numbe
         task.spawn(function()
             for i = timeOut, 0, -1 do
                 if newNotification == nil then break end
+                if not BottomFrame:FindFirstChild("Time") then break end
                 BottomFrame.Time.TextLabel.Text = tostring(i)
                 task.wait(1)
             end
